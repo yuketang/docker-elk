@@ -1,0 +1,17 @@
+filebeat:
+  idle_timeout: "1s"
+  prospectors:
+  -
+    input_type: log
+    paths:
+      - /Users/crazyjingling/Documents/xuetangx/projects/yktcms/logs/*.log
+    exclude_lines: ["\"status_code\":0.*aws_health_check", "\"status_code\":0.*/static/"]
+output.logstash:
+  hosts: ["localhost:5045"]
+  worker: 2
+  loadbalance: true
+  index: nodejslog
+
+
+
+
